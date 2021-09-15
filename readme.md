@@ -1,6 +1,7 @@
 ## TODO
 
 - improve network IO efficiency by using coroutines (async IO)
+- Add unit tests
 
 ### Done
 
