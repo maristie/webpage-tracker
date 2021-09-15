@@ -10,7 +10,7 @@ class Item(NamedTuple):
     checker: Callable
 
 
-class TargetUrl(Enum):
+class Target(Enum):
     MSFT = Item(
         'https://www.microsoft.com/ja-jp/store/collections/xboxconsoles/pc', msft.out_of_stock)
     # msft alternative URL: https://www.xbox.com/ja-jp/configure/942j774tp9jn
@@ -22,7 +22,6 @@ class TargetUrl(Enum):
                    amazon.out_of_stock)
 
     @classmethod
-    def rand_url_iter(cls):
-        target_list = list(cls)
-        for target in random.sample(target_list, len(target_list)):
-            yield target.name, target.value.url
+    def rand_iter(cls):
+        tgt_list = list(cls)
+        yield from random.sample(tgt_list, len(tgt_list))

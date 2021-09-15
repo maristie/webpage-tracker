@@ -17,10 +17,10 @@ class Requester:
     def __init__(self):
         self._throttler = Throttler()
 
-    def request(self, url):
-        if not self._throttler.test(url):
+    async def request(self, url):
+        if not await self._throttler.test(url):
             return None
         r = requests.get(url, headers=self.HEADERS)
         if r.status_code == HTTPStatus.SERVICE_UNAVAILABLE.value:
-            self._throttler.set(url)
+            await self._throttler.set(url)
         return r.text

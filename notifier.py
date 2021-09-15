@@ -12,7 +12,7 @@ end run
 """
 
 
-def notify(title, text='Restocked!! Go and check', sound='Funk'):
+async def notify(title, text='Restocked!! Go and check', sound='Funk'):
     subprocess.call(['osascript', '-e', CMD, title, text])
     os.system(f'say "Check notification!"')
     os.system(f'afplay /System/Library/Sounds/{sound}.aiff')

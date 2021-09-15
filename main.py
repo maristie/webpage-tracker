@@ -1,23 +1,20 @@
+import asyncio
 import random
-from time import sleep
+from collections import defaultdict
 
-from log_config import logging
-from notifier import notify
+import task
 from requester import Requester
-from target_urls import TargetUrl
+from targets import Target
 
-SHORT_DELAY = 5  # seconds
-DELAY = 60  # seconds
+DELAY = 60
 
-requester = Requester()
 
-while True:
-    for name, url in TargetUrl.rand_url_iter():
-        sleep(SHORT_DELAY + random.uniform(-1, 5))
-        text = requester.request(url)
-        if text is None:
-            continue
-        if not (res := TargetUrl[name].value.checker(text)):
-            notify(name)
-        logging.info(f'trying to request {name}, out of stock: {res}')
-    sleep(DELAY + random.uniform(-5, 20))
+async def main(req: Requester):
+    while True:
+        tgt_by_checker = defaultdict(list)
+        for tgt in Target.rand_iter():
+            tgt_by_checker[tgt.value.checker].append(tgt)
+        await asyncio.gather(*(task.create_intervaled_tasks(req, *task_list) for task_list in tgt_by_checker.values()))
+        await asyncio.sleep(DELAY + random.uniform(-5, 20))
+
+asyncio.run(main(Requester()))
