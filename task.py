@@ -3,10 +3,10 @@ import logging
 import random
 from typing import Tuple
 
-import log_config
-from notifier import notify
-from requester import Requester
-from targets import Target
+from . import config
+from .model.targets import Target
+from .util.notifier import notify
+from .util.requester import Requester
 
 INTERVAL = 5
 

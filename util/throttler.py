@@ -6,6 +6,7 @@ DELTA = 3
 
 
 class Throttler:
+
     def __init__(self):
         self._cnt = Counter()
         self._lock = asyncio.Lock()

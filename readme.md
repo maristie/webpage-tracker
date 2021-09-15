@@ -1,12 +1,12 @@
 ## TODO
 
-- improve network IO efficiency by using coroutines (async IO)
 - Add unit tests
+- Move configurations from hard-coded `enum` to `.yaml` file
 
 ### Done
 
+- Improve network IO efficiency by using coroutines (async IO)
 - logging
-
 - random delay
 
 ## Design
@@ -19,7 +19,7 @@
 
 ### Item URLs
 
-put in a separate `.py` file, maybe moving to a `.yaml` file
+put in a separate `.py` file
 
 ### HTTP requester
 

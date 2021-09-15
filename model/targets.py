@@ -2,7 +2,7 @@ import random
 from enum import Enum
 from typing import Callable, NamedTuple
 
-from parsing import amazon, msft, rakuten
+from ..parsing import amazon, msft, rakuten
 
 
 class Item(NamedTuple):
@@ -11,6 +11,7 @@ class Item(NamedTuple):
 
 
 class Target(Enum):
+
     MSFT = Item(
         'https://www.microsoft.com/ja-jp/store/collections/xboxconsoles/pc', msft.out_of_stock)
     # msft alternative URL: https://www.xbox.com/ja-jp/configure/942j774tp9jn
