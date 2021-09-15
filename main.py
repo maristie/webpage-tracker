@@ -20,3 +20,4 @@ while True:
         if not (res := TargetUrl[name].value.checker(text)):
             notify(name)
         logging.info(f'trying to request {name}, out of stock: {res}')
+    sleep(DELAY + random.uniform(-5, 20))
