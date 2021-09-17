@@ -15,10 +15,9 @@ async def create_task(req: Requester, tgt: Target):
     text = await req.request(tgt.value.url)
     if text is None:
         return
-    if not (res := tgt.value.checker(text)):
+    if res := tgt.value.in_stock(text):
         await notify(tgt.name)
-    logging.info(
-        f'Trying to request {tgt.name}, is out of stock: {res}')
+    logging.info(f'{tgt.name}: Any stock? {res}')
 
 
 async def create_intervaled_tasks(req: Requester, *tgts: Tuple[Target]):

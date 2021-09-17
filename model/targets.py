@@ -7,20 +7,20 @@ from ..parsing import amazon, msft, rakuten
 
 class Item(NamedTuple):
     url: str
-    checker: Callable
+    in_stock: Callable
 
 
 class Target(Enum):
 
     MSFT = Item(
-        'https://www.microsoft.com/ja-jp/store/collections/xboxconsoles/pc', msft.out_of_stock)
+        'https://www.microsoft.com/ja-jp/store/collections/xboxconsoles/pc', msft.in_stock)
     # msft alternative URL: https://www.xbox.com/ja-jp/configure/942j774tp9jn
     RAKUTEN = Item(
-        'https://books.rakuten.co.jp/rb/16465628/?bkts=1', rakuten.out_of_stock)
+        'https://books.rakuten.co.jp/rb/16465628/?bkts=1', rakuten.in_stock)
     AMAZON1 = Item('https://www.amazon.co.jp/dp/B08GG1VG23',
-                   amazon.out_of_stock)
+                   amazon.in_stock)
     AMAZON2 = Item('https://www.amazon.co.jp/dp/B08GG459RG',
-                   amazon.out_of_stock)
+                   amazon.in_stock)
 
     @classmethod
     def rand_iter(cls):

@@ -1,2 +1,2 @@
-def out_of_stock(text):
-    return 'ご注文できない商品' in text
+def in_stock(text):
+    return 'ご注文できない商品' not in text
