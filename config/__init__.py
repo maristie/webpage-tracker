@@ -3,7 +3,7 @@ import json
 from .log_props import LogProps
 from .url_props import URLProps
 
-CONFIG_FILE_PATH = 'tracker/config/config.json'
+CONFIG_FILE_PATH = 'webpage-tracker/config/config.json'
 
 
 with open(CONFIG_FILE_PATH) as f:
