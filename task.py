@@ -3,10 +3,10 @@ import logging
 import random
 from typing import Tuple
 
-import tracker.log
-from tracker.model.targets import Target
-from tracker.util.notifier import notify
-from tracker.util.requester import Requester
+from . import log as _
+from .model.targets import Target
+from .util.notifier import notify
+from .util.requester import Requester
 
 INTERVAL = 5
 
