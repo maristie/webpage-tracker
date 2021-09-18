@@ -2,18 +2,17 @@ import asyncio
 import random
 from typing import Counter
 
-DELTA = 3
-
 
 class Throttler:
 
-    def __init__(self):
+    def __init__(self, delta=3):
         self._cnt = Counter()
         self._lock = asyncio.Lock()
+        self._delta = delta
 
     async def set(self, obj, limit=10):
         async with self._lock:
-            self._cnt[obj] = limit + random.randrange(0, DELTA)
+            self._cnt[obj] = limit + random.randrange(0, self._delta)
 
     async def test(self, obj):
         async with self._lock:
