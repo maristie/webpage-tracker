@@ -1,38 +1,44 @@
+A simple webpage contents tracker by monitoring contents periodically, as long as the webpage is public to unregistered users. For example, it can be used for tracking stocks of a specific product.
+
+## How to run
+
+`python3 -m webpage-tracker`
+
 ## TODO
 
 - Add unit tests
 
 ### Done
 
-- Improve network IO efficiency by using coroutines (async IO)
-- logging
-- random delay
+- Improve network I/O efficiency by using coroutines (`asyncio`)
+- Logging
+- Random delay
 - Move configurations from hard-coded `enum` to `.json` file
 
 ## Design
 
-- target item URLs
+- Target item URLs
 - Common HTTP requester
 - Webpage parser (individual)
-  - detect stock
-- notifier
+  - Detect stock
+- Notifier
 
 ### Item URLs
 
-put in a separate `.py` file
+Parsed from JSON config file.
 
 ### HTTP requester
 
-Get webpage or other response by URL
+Get webpage or other forms of responses by URLs.
 
 ### Parser
 
-detect distinguishing information about remnant stock of the item
+Detect any distinguishing information about remnant stock of the product.
 
-each URL needs a separate one
+Each site needs a separate parser in general.
 
 ### Notifier
 
-common
+A common mechanism.
 
-notify by volume or other method
+Notify by messages, volume or other methods.
