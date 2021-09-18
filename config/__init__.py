@@ -1,7 +1,7 @@
 import json
 
-from tracker.config.log_props import LogProps
-from tracker.config.url_props import URLProps
+from .log_props import LogProps
+from .url_props import URLProps
 
 CONFIG_FILE_PATH = 'tracker/config/config.json'
 

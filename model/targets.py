@@ -2,8 +2,8 @@ import string
 from enum import Enum
 from typing import Callable, NamedTuple
 
-from tracker import parsing
-from tracker.config import URL_PROPS
+from .. import parsing
+from ..config import URL_PROPS
 
 
 class Item(NamedTuple):

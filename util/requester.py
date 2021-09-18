@@ -1,7 +1,8 @@
 from http import HTTPStatus
 
 import requests
-from tracker.util.throttler import Throttler
+
+from .throttler import Throttler
 
 
 class Requester:
