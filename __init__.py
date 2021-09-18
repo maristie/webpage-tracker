@@ -1,6 +1,7 @@
 import asyncio
 
-from .main import main
-from .util.requester import Requester
+from tracker.model.targets import Target
+from tracker.scheduler import Scheduler
+from tracker.util.requester import Requester
 
-asyncio.run(main(Requester()))
+asyncio.run(Scheduler().start(Requester(), Target))
