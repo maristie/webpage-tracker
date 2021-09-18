@@ -21,8 +21,3 @@ class Target(Enum):
                    amazon.in_stock)
     AMAZON2 = Item('https://www.amazon.co.jp/dp/B08GG459RG',
                    amazon.in_stock)
-
-    @classmethod
-    def rand_iter(cls):
-        tgt_list = list(cls)
-        yield from random.sample(tgt_list, len(tgt_list))
