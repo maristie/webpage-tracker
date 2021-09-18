@@ -1,8 +1,7 @@
 from http import HTTPStatus
 
 import requests
-
-from .throttler import Throttler
+from tracker.util.throttler import Throttler
 
 HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',

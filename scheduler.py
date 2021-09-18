@@ -4,9 +4,9 @@ import random
 from asyncio.locks import Lock
 from typing import Iterable
 
-from . import task
-from .model.targets import Target
-from .util.requester import Requester
+from tracker import task
+from tracker.model.targets import Target
+from tracker.util.requester import Requester
 
 
 class Scheduler:
