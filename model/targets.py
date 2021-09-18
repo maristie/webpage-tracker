@@ -1,8 +1,9 @@
-import random
+import string
 from enum import Enum
 from typing import Callable, NamedTuple
 
-from ..parsing import amazon, msft, rakuten
+from .. import parsing
+from ..config import URL_PROPS
 
 
 class Item(NamedTuple):
@@ -10,14 +11,12 @@ class Item(NamedTuple):
     in_stock: Callable
 
 
-class Target(Enum):
+def _populate_enum(name, props):
+    def in_stock_func_by_key(key):
+        return getattr(parsing, key.strip(string.digits).lower()).in_stock
+    mapping = {k: Item(url=v, in_stock=in_stock_func_by_key(k))
+               for k, v in props.items()}
+    return Enum(name, mapping)
 
-    MSFT = Item(
-        'https://www.microsoft.com/ja-jp/store/collections/xboxconsoles/pc', msft.in_stock)
-    # msft alternative URL: https://www.xbox.com/ja-jp/configure/942j774tp9jn
-    RAKUTEN = Item(
-        'https://books.rakuten.co.jp/rb/16465628/?bkts=1', rakuten.in_stock)
-    AMAZON1 = Item('https://www.amazon.co.jp/dp/B08GG1VG23',
-                   amazon.in_stock)
-    AMAZON2 = Item('https://www.amazon.co.jp/dp/B08GG459RG',
-                   amazon.in_stock)
+
+Target = _populate_enum('Target', URL_PROPS.mapping)

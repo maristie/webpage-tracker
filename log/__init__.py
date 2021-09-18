@@ -1,3 +1,5 @@
 import logging
 
-logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
+from ..config import LOG_PROPS
+
+logging.basicConfig(format=LOG_PROPS.format, level=LOG_PROPS.level)

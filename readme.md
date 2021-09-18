@@ -1,13 +1,13 @@
 ## TODO
 
 - Add unit tests
-- Move configurations from hard-coded `enum` to `.yaml` file
 
 ### Done
 
 - Improve network IO efficiency by using coroutines (async IO)
 - logging
 - random delay
+- Move configurations from hard-coded `enum` to `.json` file
 
 ## Design
 
