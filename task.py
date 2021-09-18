@@ -3,7 +3,7 @@ import logging
 import random
 from typing import Tuple
 
-from . import config
+from . import log
 from .model.targets import Target
 from .util.notifier import notify
 from .util.requester import Requester
