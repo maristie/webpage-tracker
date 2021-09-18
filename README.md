@@ -6,6 +6,11 @@ A simple webpage contents tracker by monitoring contents periodically, as long a
 
 `python3 -m webpage-tracker`
 
+### Dependencies
+
+- [Requests](https://docs.python-requests.org/en/latest/)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io)
+
 ## TODO
 
 - Add unit tests
