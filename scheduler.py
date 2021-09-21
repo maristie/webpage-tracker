@@ -10,7 +10,7 @@ from .util.requester import Requester
 
 
 class Scheduler:
-    def __init__(self, delay=15, lowerdelta=-1.25, upperdelta=5):
+    def __init__(self, delay=10, lowerdelta=-1, upperdelta=4):
         self._delay = delay
         self._lowerdelta = lowerdelta
         self._upperdelta = upperdelta

@@ -1,3 +1,3 @@
-__all__ = ['amazon', 'msft', 'rakuten']
+__all__ = ['amazon', 'msft', 'rakuten', 'biccamera']
 
 from . import *
